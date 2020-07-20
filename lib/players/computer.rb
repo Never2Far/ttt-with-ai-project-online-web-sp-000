@@ -21,20 +21,27 @@ module Players
         $them_positions.include?(game.board.center) ? input = "1" : input = "5"  # Respond to center opening move with a corner, or take the center if available
       when 2
         #Play corner opposite original
-          if game.board.taken?("1")
-            input = "9"
-          elsif game.board.taken?("9")
-            input = "1"
-          elsif game.board.taken?("3")
-            input = "7"
-          elsif game.board.taken?("7")
-            input = "3"
-          end
+        if game.board.taken?("1")
+          input = "9"
+        elsif game.board.taken?("9")
+          input = "1"
+        elsif game.board.taken?("3")
+          input = "7"
+        elsif game.board.taken?("7")
+          input = "3"
+        end
       #Remaining turns use first available move from the list of "rules" (see comment at end of document)
-    when 3
-      index = game.board.cells.find_index{|cell| cell == " "}   #Catch-all, *should* never have to be used
-      input = (index + 1).to_s
-    when (4..9)
+      when 3
+        if !game.board.taken?("2")
+          input = "2"
+        elsif !game.board.taken?("4")
+          input = "4"
+        elsif !game.board.taken?("6")
+          input = "6"
+        elsif !game.board.taken?("8")
+          input = "8"
+        end
+      when (4..9)
         if two_in_a_row?(self).count > 0
           input = (two_in_a_row?(self)[0] + 1).to_s
         elsif two_in_a_row?(them).count > 0
