@@ -18,6 +18,7 @@ module Players
 
 #Computer/AI strategy
       case game.board.turn_count
+        #First 4 turns are hardcoded
       when 0
         if them.class == Players::Computer
         input = "1"
@@ -26,11 +27,7 @@ module Players
       end
 
       when 1
-        if $them_positions.include?(game.board.center)
-          input = "1"
-        else
-          input = "5"
-        end
+        $them_positions.include?(game.board.center) ? input = "1" : input = "5"  # Respond to center opening move with a corner, or take the center if available
       when 2
         if game.board.taken?("5")
           if game.board.taken?("1")
