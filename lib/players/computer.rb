@@ -30,7 +30,7 @@ module Players
         elsif game.board.taken?("7")
           input = "3"
         end
-      #Remaining turns use first available move from the list of "rules" (see comment at end of document)
+      
       when 3
         if !game.board.taken?("2")
           input = "2"
@@ -41,6 +41,7 @@ module Players
         elsif !game.board.taken?("8")
           input = "8"
         end
+      #Remaining turns use first available move from the list of "rules" (see comment at end of document)
       when (4..9)
         if two_in_a_row?(self).count > 0
           input = (two_in_a_row?(self)[0] + 1).to_s
