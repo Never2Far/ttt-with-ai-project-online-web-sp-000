@@ -30,7 +30,7 @@ module Players
         $them_positions.include?(game.board.center) ? input = "1" : input = "5"  # Respond to center opening move with a corner, or take the center if available
       when 2
         #Play corner opposite original
-        
+
           if game.board.taken?("1")
             input = "9"
           elsif game.board.taken?("9")
@@ -40,9 +40,9 @@ module Players
           elsif game.board.taken?("7")
             input = "3"
           else
-  
+
           end
-        
+
       when 3
         empty_edges = (game.board.edges - $them_positions - $self_positions).to_a
         input = empty_edges[0].to_s
