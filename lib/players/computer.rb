@@ -30,7 +30,7 @@ module Players
         elsif game.board.taken?("7")
           input = "3"
         end
-      
+
       when 3
         if !game.board.taken?("2")
           input = "2"
