@@ -31,7 +31,10 @@ module Players
             input = "3"
           end
       #Remaining turns use first available move from the list of "rules" (see comment at end of document)
-      when (3..9)
+    when 3
+      index = game.board.cells.find_index{|cell| cell == " "}   #Catch-all, *should* never have to be used
+      input = (index + 1).to_s
+    when (4..9)
         if two_in_a_row?(self).count > 0
           input = (two_in_a_row?(self)[0] + 1).to_s
         elsif two_in_a_row?(them).count > 0
