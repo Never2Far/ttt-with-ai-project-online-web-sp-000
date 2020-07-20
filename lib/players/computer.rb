@@ -5,7 +5,7 @@ module Players
 
     def move
       #Identify Players
-        them = game.player_2	      self == game.player_1 ? them = game.player_2 : them = game.player_1
+      self == game.player_1 ? them = game.player_2 : them = game.player_1
 
       $self_positions = game.board.cells.each_index.select{ |i| game.board.cells[i] == self.token}.map!{|i| i + 1}.to_set
 
