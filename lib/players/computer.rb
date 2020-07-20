@@ -7,6 +7,8 @@ module Players
       #Identify Players
       self == game.player_1 ? them = game.player_2 : them = game.player_1
 
+
+      #Get/update lists of relevant positions before executing each move
       $self_positions = game.board.cells.each_index.select{ |i| game.board.cells[i] == self.token}.map!{|i| i + 1}.to_set
 
       $them_positions = game.board.cells.each_index.select{ |i| game.board.cells[i] == them.token}.map!{|i| i + 1}.to_set
