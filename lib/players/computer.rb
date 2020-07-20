@@ -30,8 +30,8 @@ module Players
         elsif game.board.taken?("7")
           input = "3"
         end
-
       when 3
+        #Play an available edge
         if !game.board.taken?("2")
           input = "2"
         elsif !game.board.taken?("4")
