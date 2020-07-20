@@ -16,7 +16,7 @@ module Players
       $empty_positions = (1..9).to_set - $self_positions - $them_positions
 
 
-
+#Computer/AI strategy
       case game.board.turn_count
       when 0
         if them.class == Players::Computer
