@@ -43,10 +43,7 @@ module Players
 
           end
 
-      when 3
-        empty_edges = (game.board.edges - $them_positions - $self_positions).to_a
-        input = empty_edges[0].to_s
-      when (4..9)
+      when (3..9)
 
         if winning_move?(self).count > 0
           input = (winning_move?(self)[0] + 1).to_s
