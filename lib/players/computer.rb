@@ -29,6 +29,7 @@ module Players
       when 1
         $them_positions.include?(game.board.center) ? input = "1" : input = "5"  # Respond to center opening move with a corner, or take the center if available
       when 2
+        #Play corner opposite original
         if game.board.taken?("5")
           if game.board.taken?("1")
             input = "9"
